@@ -72,43 +72,28 @@ function Block({ block }) {
   return null;
 }
 
-function Home({ onStart, onGlossary, onQuiz, percent }) {
+function Home({ onStart, onGlossary, onQuiz }) {
   return (
-    <>
-      <section className="hero" aria-label="Dərsə giriş">
-        <div className="hero-visual" aria-hidden="true" />
-        <p className="hero-kicker">{meta.subtitle}</p>
-        <h1 className="hero-brand">{meta.title}</h1>
-        <p className="hero-lead">
-          Asandan çətinə — funksiyadan patologiyaya. Bölmə-bölmə oxu, özünü yoxla,
-          sonda ümumi testi ver.
-        </p>
-        <div className="cta-row">
-          <button type="button" className="btn btn-primary" onClick={onStart}>
-            Dərsə başla
-          </button>
-          <button type="button" className="btn btn-ghost" onClick={onQuiz}>
-            Ümumi test
-          </button>
-          <button type="button" className="btn btn-ghost" onClick={onGlossary}>
-            Lüğət
-          </button>
-        </div>
-      </section>
-
-      <div className="home-extra">
-        <p className="meta-line">
-          <strong>Kim üçündür:</strong> {meta.forWhom}
-        </p>
-        <p className="meta-line">
-          <strong>Mənbə:</strong> {meta.source}
-        </p>
-        <p>{meta.howTo}</p>
-        <p>
-          İrəliləyiş: <strong>{percent}%</strong> bölmə tamamlanıb (localStorage).
-        </p>
+    <section className="hero" aria-label="Dərsə giriş">
+      <div className="hero-visual" aria-hidden="true" />
+      <p className="hero-kicker">{meta.subtitle}</p>
+      <h1 className="hero-brand">{meta.title}</h1>
+      <p className="hero-lead">
+        Asandan çətinə — funksiyadan patologiyaya. Bölmə-bölmə oxu, özünü yoxla,
+        sonda ümumi testi ver.
+      </p>
+      <div className="cta-row">
+        <button type="button" className="btn btn-primary" onClick={onStart}>
+          Dərsə başla
+        </button>
+        <button type="button" className="btn btn-ghost" onClick={onQuiz}>
+          Ümumi test
+        </button>
+        <button type="button" className="btn btn-ghost" onClick={onGlossary}>
+          Lüğət
+        </button>
       </div>
-    </>
+    </section>
   );
 }
 
@@ -377,7 +362,6 @@ export default function App() {
 
       {state.view === "home" && (
         <Home
-          percent={percent}
           onStart={() => goSection(sections[0].id)}
           onQuiz={goQuiz}
           onGlossary={goGlossary}
